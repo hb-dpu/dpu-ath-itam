@@ -389,7 +389,7 @@ const ITAMApp = () => {
             <div className="text-center mb-10">
               {/* DePaul Logo */}
               <div className="flex justify-center mb-4">
-                <img src="logo.gif" alt="DePaul Logo" className="w-20 h-21" />
+                <img src="logo.png" alt="DePaul Logo" className="w-20 h-21" />
               </div>
               <h1 className="text-3xl font-semibold text-gray-900 tracking-tight mb-1">DePaul Athletics</h1>
               <h2 className="text-base text-gray-500 font-medium">IT Asset Management</h2>
