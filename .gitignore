@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Data files (contains sensitive information)
+data/
+uploads/
+
+# SSL certificates
+server.key
+server.crt
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/

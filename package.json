@@ -1,0 +1,19 @@
+{
+  "name": "depaul-itam",
+  "version": "2.0.0",
+  "description": "DePaul Athletics IT Asset Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "credentials": "node manage-credentials.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "multer": "^1.4.5-lts.1",
+    "xlsx": "^0.18.5",
+    "bcrypt": "^5.1.1"
+  },
+  "author": "DePaul Athletics IT",
+  "license": "ISC"
+}
