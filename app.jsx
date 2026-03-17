@@ -16,6 +16,55 @@ const API_BASE_URL = (() => {
   return `http://${window.location.hostname}:3000`;
 })();
 
+// Scroll to Top Button Component
+const ScrollToTopButton = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <button
+      onClick={scrollToTop}
+      className="fixed bottom-6 right-6 bg-gray-700 bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 backdrop-blur-sm"
+      aria-label="Scroll to top"
+    >
+      <svg 
+        className="w-6 h-6" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth={2} 
+          d="M5 15l7-7 7 7" 
+        />
+      </svg>
+    </button>
+  );
+};
+
 const ITAMApp = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
@@ -338,11 +387,9 @@ const ITAMApp = () => {
         <div className="flex-1 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-10 w-full max-w-md">
             <div className="text-center mb-10">
-              {/* DePaul "D" Logo */}
+              {/* DePaul Logo */}
               <div className="flex justify-center mb-4">
-                <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <text x="50" y="75" fontFamily="Arial, sans-serif" fontSize="85" fontWeight="bold" fill="#005EB8" textAnchor="middle">D</text>
-                </svg>
+                <img src="logo.png" alt="DePaul Logo" className="w-20 h-20" />
               </div>
               <h1 className="text-3xl font-semibold text-gray-900 tracking-tight mb-1">DePaul Athletics</h1>
               <h2 className="text-base text-gray-500 font-medium">IT Asset Management</h2>
@@ -635,6 +682,9 @@ const ITAMApp = () => {
           Built by <span className="font-semibold text-gray-700">Hayden Blair</span> in <span className="font-semibold text-gray-700">Chicago, IL</span>
         </p>
       </footer>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
     </div>
   );
 };
